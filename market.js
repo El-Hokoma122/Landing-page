@@ -64,3 +64,17 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
+let SHEET_ID = '1-js-_NciE-3AnUl2ySxMiUeBtAnRFoCtWIutJQvAgoE';
+let SHEET_TITLE = 'Products';
+let SHEET_RANGE = 'Products!A:F';
+
+let FULL_URL = 'https://docs.google.com/spreadsheets/d/' + SHEET_ID + '/gviz/tq?sheet=' + SHEET_TITLE + '&range=' + SHEET_RANGE;
+async function main() {
+    const res = await fetch(FULL_URL);
+    const text = await res.text();
+    const data = JSON.parse(text.substring(47).slice(0, -2))
+        .table.rows.map(row => row.c.map(cell => cell?.v || null));
+    console.log(data);
+}
+
+main();
