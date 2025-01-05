@@ -272,6 +272,9 @@ nav span {
     .nav2 span {
         font-size: 2rem;
     }
+    nav span {
+        font-size: 0.7rem;
+    }
 }
 
 @media (max-width: 576px) {
@@ -629,6 +632,7 @@ nav span {
     font: bold 1rem sans-serif;
     padding: 50px 50px 60px 50px;
     margin-top: 20px;
+    
 }
 
 .footer-distributed .footer-left,
