@@ -93,7 +93,7 @@ nav span {
 
 .nav2 span {
     color: #28a745;
-    font-size: 2rem;
+    font-size: 2.3rem;
     font-weight: bold;
 }
 
@@ -270,13 +270,13 @@ nav span {
     }
 
     .nav2 span {
-        font-size: 1.8rem;
+        font-size: 2rem;
     }
 }
 
 @media (max-width: 576px) {
     .nav2 span {
-        font-size: 1.5rem;
+        font-size: 1.8rem;
     }
 
     .nav2 {
