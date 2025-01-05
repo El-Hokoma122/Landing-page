@@ -10,23 +10,29 @@ async function main() {
     const data = JSON.parse(text.substring(47).slice(0, -2))
         .table.rows.map(row => row.c.map(cell => cell?.v || null));
 
-    function createCategoryElement(row) {
-        const div = document.createElement('div');
-        div.classList.add('Category');
-        div.innerHTML = `
-            <div class="category-item1">
-                <div class="category-img">
-                    <img class="img-overlay" src="${row[3]}" />
-                </div>
-                <div class="Rectangle15">
-                    <p class="category-title">${row[0]}</p>
-                    <div class="Line26"></div>
-                    <p class="price">${row[2]} <span style="margin-left: auto;">${row[1]}</span></p>
-                </div>
+   function createCategoryElement(row) {
+    const div = document.createElement('div');
+    const categoryId = row[0].replace(/\s+/g, '-').toLowerCase(); // تحويل الاسم إلى id
+    const categoryClass = `category-${categoryId}`; // إنشاء كلاس ديناميكي
+
+    div.classList.add('Category', categoryClass); // إضافة الكلاس المميز
+    div.setAttribute('id', categoryId); 
+
+    div.innerHTML = `
+        <div class="category-item1">
+            <div class="category-img">
+                <img class="img-overlay" src="${row[3]}" />
             </div>
-        `;
-        return div;
-    }
+            <div class="Rectangle15">
+                <p class="category-title">${row[0]}</p>
+                <div class="Line26"></div>
+                <p class="price">${row[2]} <span style="margin-left: auto;">${row[1]}</span></p>
+            </div>
+        </div>
+    `;
+    return div;
+}
+
         
     let mainClassTopCategoriesGroup = document.getElementById("TopCategoriesGroup");
     let container = document.getElementById("main");
@@ -61,6 +67,45 @@ async function main() {
     carsourl[2].src = data[2][5];
     container.appendChild(fragment);
     initializeSliders();
+
+document.getElementById("input").addEventListener("input", function () {
+    const searchText = this.value.toLowerCase();
+    const allCategories = document.querySelectorAll(".Category");
+    const allSections = document.querySelectorAll(".main-content");
+    const noResultsMessage = document.getElementById("no-results"); 
+
+    let hasMatchingProducts = false;
+
+    allSections.forEach(section => {
+        const productsInSection = section.querySelectorAll(".Category");
+        let hasVisibleProducts = false;
+
+        productsInSection.forEach(product => {
+            const title = product.querySelector(".category-title").textContent.toLowerCase();
+            if (title.includes(searchText)) {
+                product.style.display = "block"; 
+                hasVisibleProducts = true;
+                hasMatchingProducts = true;
+            } else {
+                product.style.display = "none";
+            }
+        });
+
+        if (hasVisibleProducts) {
+            section.style.display = "block"; 
+        } else {
+            section.style.display = "none";
+        }
+    });
+
+   
+    if (!hasMatchingProducts) {
+        noResultsMessage.style.display = "block";
+    } else {
+        noResultsMessage.style.display = "none";
+    }
+});
+
 }
 
 function createNewSection(category, container) {
@@ -107,10 +152,6 @@ function initializeSliders() {
             });
         }
 
-        items.forEach((item, index) => {
-            item.style.transform = `translateX(${index * 10}%)`;
-            item.style.transition = "transform 0.5s ease-in-out";
-        });
 
         container.dataset.isWrapped = !isWrapped;
 
@@ -131,14 +172,13 @@ function initializeSliders() {
             } else {
                 container.style.transition = "flex-wrap 0.5s ease-in-out";
                 container.style.flexWrap = "nowrap";
-                items.forEach((item, index) => {
-                    item.style.transform = `translateX(${index * 10}%)`;
-                });
+            
                 buttonIcon.style.transform = "rotate(0deg)";
             }
             container.dataset.isWrapped = !isWrapped;
         };
     });
+    hover();
 }
 
 function toggleViewAll(category) {
@@ -162,10 +202,24 @@ function toggleViewAll(category) {
     } else {
         container.style.transition = "flex-wrap 0.5s ease-in-out";
         container.style.flexWrap = "nowrap";
-        items.forEach((item, index) => {
-            item.style.transform = `translateX(${index * 10}%)`;
-        });
+
         buttonIcon.style.transform = "rotate(0deg)";
     }
     container.dataset.isWrapped = !isWrapped;
+}
+function hover() {
+    document.querySelectorAll('.Category').forEach(category => {
+        category.addEventListener('mouseenter', () => {
+            document.querySelectorAll('.TopCategoriesGroup').forEach(parent => {
+                parent.style.overflow = 'visible';
+                console.log("static");
+            });
+        });
+
+        category.addEventListener('mouseleave', () => {
+            document.querySelectorAll('.TopCategoriesGroup').forEach(parent => {
+                parent.style.overflow = 'hidden';
+            });
+        });
+    });
 }

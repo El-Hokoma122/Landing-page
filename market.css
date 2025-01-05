@@ -26,7 +26,7 @@ nav {
     padding: 0px 80px 0px 80px;
     width: 100%;
     height: 42px;
-    background-color: #1F6DFF;
+    background-color: #28a745; /* Green */
     position: fixed;
     top: 0;
     z-index: 1000;
@@ -82,7 +82,7 @@ nav span {
 }
 
 .nav2 span {
-    color: #1F6DFF;
+    color: #28a745; /* Green */
     font-size: 2.5rem;
     font-weight: bold;
 }
@@ -138,7 +138,7 @@ nav span {
 }
 
 .searchIcon path {
-    fill: #1F6DFF;
+    fill: #28a745; /* Green */
 }
 
 .micIcon path {
@@ -161,7 +161,7 @@ nav span {
     }
 
     .dropbtn {
-        background-color: #1F6DFF;
+        background-color: #28a745; /* Green */
         border: none;
         cursor: pointer;
         color: white;
@@ -173,7 +173,7 @@ nav span {
     .dropdown-content {
         display: none;
         position: absolute;
-        background-color: #1F6DFF;
+        background-color: #28a745; /* Green */
         box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
         z-index: 1;
 
@@ -314,17 +314,6 @@ nav span {
     flex-wrap: wrap;
     background-color: #fff;
 }
-
-.title {
-    width: 100%;
-    font-size: 1.5rem;
-    font-weight: bold;
-    margin-top: 100px;
-    margin-bottom: 10px;
-    position: relative;
-    display: inline-block;
-}
-
 .title2 {
     display: flex;
     justify-content: space-between;
@@ -336,36 +325,22 @@ nav span {
     margin-bottom: 10px;
     position: relative;
 }
-
-.title::after {
-    content: "";
-    display: block;
-    width: 15%;
-    height: 4px;
-    border-top-right-radius: 25px;
-    background-color: #1F6DFF;
-    margin: 10px 0 0 0;
-    margin-bottom: 1px;
-}
-
 .title2::after {
     content: "";
     display: block;
     width: 15%;
     height: 4px;
     border-top-right-radius: 25px;
-    background-color: #1F6DFF;
+    background-color: #28a745; /* Green */
     margin: 10px 0 0 0;
     position: absolute;
     left: 0;
     bottom: -0.1px;
 }
-
 .divider {
     width: 100%;
     height: 1px;
-    background: linear-gradient(to right, #1F6DFF 249.5px, #666666 0);
-    ;
+    background: linear-gradient(to right, #28a745 249.5px, #ff5100 0); /* Green to Orange */
     position: absolute;
     left: 0;
     bottom: 0;
@@ -374,9 +349,9 @@ nav span {
 .TopCategoriesGroup {
     display: flex;
     flex-wrap: nowrap;
-    overflow: hidden;
+   overflow: hidden;
     position: relative;
-    gap: 20px;
+    gap: 30px;
 }
 
 .Category {
@@ -384,31 +359,39 @@ nav span {
     border-radius: 16px;
     border: 1px #EDEDED solid;
     padding-bottom: 0px;
+    cursor: pointer;
+    transition: transform 0.5s ease-in-out;
 }
+.Category:hover {
 
+    transform: scale(1.2) !important;
+    z-index: 5;
+}
 .category-item1 {
     display: flex;
     flex-direction: column;
     align-items: center;
     margin: 0 10px;
     transition: transform 1s ease-in-out;
+    height: 100%;
 }
 
 .category-item1 P {
-    margin: 0;
+    margin-bottom: 5px;
     overflow: hidden;
     white-space: normal;
     word-wrap: break-word;
+
 }
 
 .category-img {
     margin-top: 10px;
     margin-bottom: 10px;
-    width: 144px;
-    height: 157px;
+    width: 170px;
+    height: 160px;
     border-radius: 10px;
     overflow: hidden;
-    cursor: pointer;
+    flex: 1;
 }
 
 .category-img img {
@@ -421,17 +404,19 @@ nav span {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    font-size: 0.7rem;
+    font-size: 0.9rem;
     width: 100%;
     max-width: 110px;
     color: #666666;
+    margin-top: 5px;
 }
 
 .category-title {
-    font-size: 0.9rem;
+    font-size: 1rem;
     text-align: center;
     width: 100%;
     max-width: 130px;
+    
 }
 
 .Line26 {
@@ -442,13 +427,13 @@ nav span {
 }
 
 .Rectangle15 {
-    width: 115%;
+    width: 112%;
     height: auto;
     background: white;
     border-bottom-left-radius: 16px;
     border-bottom-right-radius: 16px;
     border: 1px #EDEDED solid;
-    padding: 0px 10px 5px 10px;
+    padding: 7px 10px 5px 10px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -472,7 +457,7 @@ nav span {
 
 .view-all-btn i {
     font-size: 18px;
-    color: #1a73e8;
+    color: #ff5100; /* Orange */
     transition: transform 0.5s ease-in-out;
 
 }
@@ -482,24 +467,12 @@ nav span {
 }
 
 @media (max-width: 1200px) {
-    .title {
-        font-size: 1.4rem;
-    }
-
     .title2 {
         font-size: 1.4rem;
     }
 }
 
 @media (max-width: 992px) {
-    .title {
-        font-size: 1.3rem;
-    }
-
-    .title::after {
-        width: 25%;
-    }
-
     .title2 {
         font-size: 1.4rem;
     }
@@ -510,14 +483,6 @@ nav span {
 }
 
 @media (max-width: 768px) {
-    .title {
-        font-size: 1.2rem;
-    }
-
-    .title::after {
-        width: 30%;
-    }
-
     .title2 {
         font-size: 1.2rem;
     }
@@ -531,7 +496,7 @@ nav span {
     }
 
     .category-img {
-        width: 110px;
+        width: 130px;
         height: 120px;
     }
 
@@ -546,50 +511,38 @@ nav span {
     }
 
     .price {
-        font-size: 0.6rem;
+        font-size: 0.8rem;
         max-width: 90px;
     }
     .category-item1 P {
-        font-size: 0.6rem;
+        font-size: 0.9rem;
     }
 }
 
 @media (max-width: 576px) {
-    .title {
-        font-size: 1.1rem;
-    }
-
     .title2 {
         font-size: 1.1rem;
     }
 
     .category-img {
-        min-width: 100px;
-        height: 110px;
+        width: 110px;
+        height: 100px;
     }
 
     .category-title {
         font-size: 0.8rem;
         max-width: 80px;
     }
-    .price {
-        font-size: 0.6rem;
-        max-width: 90px;
-    }
 }
 
 @media (max-width: 400px) {
-    .title {
-        font-size: 1rem;
-    }
-
     .title2 {
         font-size: 1rem;
     }
 
     .category-img {
-        width: 80px;
-        height: 90px;
+        width: 100px;
+        min-height: 90px;
     }
 
     .category-title {
@@ -603,11 +556,11 @@ nav span {
     }
 
     .price {
-        font-size: 0.5rem;
+        font-size: 0.7rem;
         max-width: 70px;
     }
     .category-item1 P {
-        font-size: 0.5rem;
+        font-size: 0.8rem;
     }
 }
 
@@ -647,7 +600,7 @@ nav span {
 }
 
 .footer-distributed h3 {
-    color: #1F6DFF;
+    color: #28a745; /* Green */
     font: normal 2rem sans-serif;
     font-weight: bold;
     margin: 0;
@@ -678,7 +631,7 @@ nav span {
 }
 
 .footer-distributed .footer-center i {
-    background-color: #1F6DFF;
+    background-color: #28a745; /* Green */
     color: #ffffff;
     font-size: 1.5rem;
     width: 36px;
@@ -744,7 +697,7 @@ nav span {
     height: 35px;
     cursor: pointer;
     font-size: 1.6rem;
-    color: #1F6DFF;
+    color: #28a745; /* Green */
     text-align: center;
     line-height: 40px;
     margin-right: 3px;
@@ -752,13 +705,13 @@ nav span {
 }
 
 .footer-distributed .footer-icons a:hover {
-    background-color: #1F6DFF;
+    background-color: #28a745; /* Green */
     color: #ffffff;
     border-radius: 50%;
 }
 
 .footer-links a:hover {
-    color: #1F6DFF;
+    color: #28a745; /* Green */
 }
 
 @media (max-width: 1200px) {
