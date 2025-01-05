@@ -270,13 +270,13 @@ nav span {
     }
 
     .nav2 span {
-        font-size: 1.6rem;
+        font-size: 1.8rem;
     }
 }
 
 @media (max-width: 576px) {
     .nav2 span {
-        font-size: 1.3rem;
+        font-size: 1.5rem;
     }
 
     .nav2 {
