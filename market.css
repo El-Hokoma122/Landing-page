@@ -93,7 +93,7 @@ nav span {
 
 .nav2 span {
     color: #28a745;
-    font-size: 2.5rem;
+    font-size: 2rem;
     font-weight: bold;
 }
 
@@ -270,13 +270,13 @@ nav span {
     }
 
     .nav2 span {
-        font-size: 2rem;
+        font-size: 1.6rem;
     }
 }
 
 @media (max-width: 576px) {
     .nav2 span {
-        font-size: 1.9rem;
+        font-size: 1.3rem;
     }
 
     .nav2 {
@@ -377,7 +377,7 @@ nav span {
 .Category:hover {
 
     transform: scale(1.3) !important;
-    z-index: 5;
+    z-index: 1;
 }
 
 .category-item1 {
