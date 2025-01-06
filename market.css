@@ -363,11 +363,15 @@ nav span {
 .TopCategoriesGroup {
     display: flex;
     flex-wrap: nowrap;
-    overflow: hidden;
+    overflow-x: auto;
     position: relative;
     gap: 40px;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
 }
-
+.TopCategoriesGroup ::-webkit-scrollbar {
+    display: none;
+}
 .Category {
     background: #F3F9FB;
     border-radius: 16px;
