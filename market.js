@@ -178,7 +178,7 @@ function initializeSliders() {
             container.dataset.isWrapped = !isWrapped;
         };
     });
-    hover();
+
 }
 
 function toggleViewAll(category) {
@@ -206,20 +206,4 @@ function toggleViewAll(category) {
         buttonIcon.style.transform = "rotate(0deg)";
     }
     container.dataset.isWrapped = !isWrapped;
-}
-function hover() {
-    document.querySelectorAll('.Category').forEach(category => {
-        category.addEventListener('mouseenter', () => {
-            document.querySelectorAll('.TopCategoriesGroup').forEach(parent => {
-                parent.style.overflow = 'visible';
-                console.log("static");
-            });
-        });
-
-        category.addEventListener('mouseleave', () => {
-            document.querySelectorAll('.TopCategoriesGroup').forEach(parent => {
-                parent.style.overflow = 'hidden';
-            });
-        });
-    });
 }

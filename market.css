@@ -381,11 +381,6 @@ nav span {
     transition: transform 0.5s ease-in-out;
 }
 
-.Category:hover {
-
-    transform: scale(1.3) !important;
-    z-index: 1;
-}
 
 .category-item1 {
     display: flex;
@@ -399,6 +394,7 @@ nav span {
     margin-bottom: 5px;
     overflow: hidden;
     white-space: normal;
+    font-weight: bold;
     word-wrap: break-word;
 
 }
