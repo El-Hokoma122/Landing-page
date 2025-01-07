@@ -12,10 +12,10 @@ async function main() {
 
    function createCategoryElement(row) {
     const div = document.createElement('div');
-    const categoryId = row[0].replace(/\s+/g, '-').toLowerCase(); // تحويل الاسم إلى id
-    const categoryClass = `category-${categoryId}`; // إنشاء كلاس ديناميكي
+    const categoryId = row[0].replace(/\s+/g, '-').toLowerCase();
+    const categoryClass = `category-${categoryId}`;
 
-    div.classList.add('Category', categoryClass); // إضافة الكلاس المميز
+    div.classList.add('Category', categoryClass);
     div.setAttribute('id', categoryId); 
 
     div.innerHTML = `
@@ -47,7 +47,8 @@ async function main() {
             section = mainClassTopCategoriesGroup.querySelector('.TopCategoriesGroup1');
         } else {
             section = document.getElementById(category);
-
+        
+            
             if (!section) {
                 section = createNewSection(category, container);
             }
@@ -58,9 +59,7 @@ async function main() {
             section.querySelector('.TopCategoriesGroup').appendChild(element);
         }
     });
-    console.log(data[0][7]);
-    console.log(data[1][5]);
-    console.log(data[2][5]);
+    
     
     carsourl[0].src = data[0][5];
     carsourl[1].src = data[1][5];
@@ -190,7 +189,6 @@ function toggleViewAll(category) {
     const buttonIcon = section.querySelector('.view-all-btn i');
     
     let isWrapped = container.dataset.isWrapped === "true";
-    console.log(isWrapped);
     
     if (isWrapped) {
         container.style.transition = "flex-wrap 0.5s ease-in-out";
